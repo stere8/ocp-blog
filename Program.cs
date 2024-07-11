@@ -4,6 +4,7 @@ using ocp_blog.Context;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllers(); // Add this line
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -37,5 +38,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
+
+app.UseRouting(); // Add this line
+
+app.UseAuthorization();
+
+app.MapControllers(); // Add this line
 
 app.Run();
