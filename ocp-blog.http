@@ -1,0 +1,6 @@
+@ocp_blog_HostAddress = http://localhost:5265
+
+GET {{ocp_blog_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
