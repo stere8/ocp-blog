@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ocp_blog")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5cc10b63335f933eae2b8dba4a27ea87951b332")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98b9700f65fa70903e389e7da19cf72f2fa1906f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ocp_blog")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ocp_blog")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
