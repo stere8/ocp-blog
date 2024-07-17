@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ocp_blog.props" />
+</Project>

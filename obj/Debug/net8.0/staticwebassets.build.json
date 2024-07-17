@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "E4UCPX7Ep04CQt86vKb9YGGebEM1d6kvI2/RofT2iJ0=",
+  "Source": "ocp_blog",
+  "BasePath": "_content/ocp_blog",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

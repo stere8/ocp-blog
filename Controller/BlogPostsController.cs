@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using ocp_blog.Context;
 using ocp_blog.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +26,8 @@ namespace ocp_blog.Controller
         public async Task<ActionResult<IEnumerable<BlogPost>>> GetBlogPosts()
         {
             _logger.LogInformation("Getting all blog posts");
-            return await _context.BlogPosts.ToListAsync();
+            var list = await _context.BlogPosts.ToListAsync();
+            return list;
         }
 
         // GET: api/BlogPosts/5
@@ -48,14 +48,16 @@ namespace ocp_blog.Controller
 
         // POST: api/BlogPosts
         [HttpPost]
-        public async Task<ActionResult<BlogPost>> PostBlogPost(BlogPost blogPost)
+        public async Task<IActionResult> PostBlogPost([FromBody] BlogPost blogPost)
         {
-            _logger.LogInformation("Creating a new blog post");
-            _context.BlogPosts.Add(blogPost);
-            await _context.SaveChangesAsync();
-
-            _logger.LogInformation("Blog post created with id {Id}", blogPost.Id);
-            return CreatedAtAction(nameof(GetBlogPost), new { id = blogPost.Id }, blogPost);
+            if (ModelState.IsValid)
+            {
+                blogPost.Date = DateTime.SpecifyKind(blogPost.Date, DateTimeKind.Utc);
+                _context.BlogPosts.Add(blogPost);
+                await _context.SaveChangesAsync();
+                return CreatedAtAction(nameof(GetBlogPost), new { id = blogPost.Id }, blogPost);
+            }
+            return BadRequest(ModelState);
         }
 
         // PUT: api/BlogPosts/5
